@@ -28,6 +28,7 @@ class TextEmbedStrategyType(str, Enum):
     """TextEmbedStrategyType class definition."""
 
     openai = "openai"
+    openai_batch = "openai_batch"
     mock = "mock"
 
     def __repr__(self):
@@ -215,6 +216,12 @@ def load_strategy(strategy: TextEmbedStrategyType) -> TextEmbeddingStrategy:
             )
 
             return run_openai
+        case TextEmbedStrategyType.openai_batch:
+            from graphrag.index.operations.embed_text.strategies.openai_batch import (
+                run as run_openai_batch,
+            )
+
+            return run_openai_batch
         case TextEmbedStrategyType.mock:
             from graphrag.index.operations.embed_text.strategies.mock import (
                 run as run_mock,

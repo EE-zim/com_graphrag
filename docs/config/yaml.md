@@ -204,6 +204,7 @@ Supported embeddings names are:
 - `batch_size` **int** - The maximum batch size to use.
 - `batch_max_tokens` **int** - The maximum batch # of tokens.
 - `names` **list[str]** - List of the embeddings names to run (must be in supported list).
+- `strategy` **dict** - Override the embedding strategy. Set `type: openai_batch` to use the OpenAI Batch API.
 
 ### extract_graph
 
